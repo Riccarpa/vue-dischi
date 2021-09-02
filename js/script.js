@@ -6,6 +6,7 @@ const app = new Vue({
   el: '#app',
   data: {
     albumList:[],
+    genres:[],
   },
   computed: {
   albumListSorted(){
@@ -13,18 +14,22 @@ const app = new Vue({
       return a.year - b.year;
     })
     return albumSorted;
+  },
+  genreCatch(){
+    const genres = [];
+    this.albumList.forEach((element)=>{
+      
+     if(!(genres.includes(element.genre))){
+      genres.push(element.genre)
+     }
+    })
+    
+    return genres;
   }
+ 
   },
   methods: {
-    maggiore(a,b) {
-      if (a.year < b.year){
-        return -1;
-      }
-      else if (a.year > b.year){
-        return 1;
-      }
-      return 0;
-    }
+    
   },
   created(){
     axios

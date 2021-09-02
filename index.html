@@ -17,6 +17,10 @@
         </div>
       </header>
       <main class="container">
+        <select name="" id="">
+          <option>All</option>
+          <option v-for="genre in genreCatch">{{genre}}</option>
+        </select>
         <section id="album-container">
           <div v-for="album in albumListSorted" class="card">
             <img :src="album.poster" alt="New Jersey" />
@@ -29,11 +33,7 @@
     </div>
 
 
-    <!-- <select name="" id="">
-      <option>All</option>
-      <option>Pop</option>
-      <option>Pop</option>
-    </select> -->
+    
 
 
     <script src="js/script.js"></script>
