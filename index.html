@@ -17,12 +17,12 @@
         </div>
       </header>
       <main class="container">
-        <select name="" id="">
+        <select v-model="selected" >
           <option>All</option>
           <option v-for="genre in genreCatch">{{genre}}</option>
         </select>
-        <section id="album-container">
-          <div v-for="album in albumListSorted" class="card">
+        <section  id="album-container">
+          <div v-for="album in albumListSorted" v-if="genreFilter(album)" class="card">
             <img :src="album.poster" alt="New Jersey" />
             <h2 class="title">{{album.title}}</h2>
             <address class="author">{{album.author}}</address>

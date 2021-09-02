@@ -6,7 +6,8 @@ const app = new Vue({
   el: '#app',
   data: {
     albumList:[],
-    genres:[],
+    selected:'All',
+    
   },
   computed: {
   albumListSorted(){
@@ -26,10 +27,17 @@ const app = new Vue({
     
     return genres;
   }
- 
+  
+  
   },
   methods: {
-    
+    genreFilter(album){
+      if(this.selected === album.genre || this.selected === 'All' ){
+
+        return true;
+      }
+
+    },
   },
   created(){
     axios
