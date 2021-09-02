@@ -7,7 +7,25 @@ const app = new Vue({
   data: {
     albumList:[],
   },
-  methods: {},
+  computed: {
+  albumListSorted(){
+    const albumSorted = this.albumList.sort(function(a, b){
+      return a.year - b.year;
+    })
+    return albumSorted;
+  }
+  },
+  methods: {
+    maggiore(a,b) {
+      if (a.year < b.year){
+        return -1;
+      }
+      else if (a.year > b.year){
+        return 1;
+      }
+      return 0;
+    }
+  },
   created(){
     axios
     .get('https://flynn.boolean.careers/exercises/api/array/music')

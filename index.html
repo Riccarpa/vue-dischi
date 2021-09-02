@@ -18,7 +18,7 @@
       </header>
       <main class="container">
         <section id="album-container">
-          <div v-for="album in albumList" class="card">
+          <div v-for="album in albumListSorted" class="card">
             <img :src="album.poster" alt="New Jersey" />
             <h2 class="title">{{album.title}}</h2>
             <address class="author">{{album.author}}</address>
